@@ -16,6 +16,7 @@ begin
     gem.email = "perryn.fowler@gmail.com"
     gem.homepage = "http://github.com/perryn/blinky"
     gem.authors = ["Perryn Fowler"]
+    gem.add_dependency "ruby-usb"
     gem.add_development_dependency "rspec", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
