@@ -12,3 +12,8 @@
 
 - Errno::EPIPE: Broken pipe - usb_control_msg
     why does this happen? endpoint initialization?
+    
+    
+------------- ubuntu
+
+no libusb-compat? came automatically in some other package?

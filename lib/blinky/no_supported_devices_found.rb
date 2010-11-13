@@ -1,5 +1,3 @@
-require 'pp'
-
 module Blinky
   class NoSupportedDevicesFound < Exception
     def initialize found_devices
