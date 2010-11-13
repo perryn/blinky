@@ -16,4 +16,8 @@
     
 ------------- ubuntu
 
-no libusb-compat? came automatically in some other package?
+no libusb-compat? came automatically in some other package
+
+---- ribusb
+
+none of above necessary - maybe libusb compat is still needed?

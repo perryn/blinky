@@ -1,22 +1,31 @@
 module Blinky
   module DelcomEngineering
     module Model804005
-                 
-      def show_success device_handle 
-        green = 0xFF && ~0x01
-        device_handle.usb_control_msg(0xc8, 0x12, 0x020a, green,"",0)  
+      
+      GREEN = 0xFF && ~0x01
+      RED = 0xFF && ~0x02
+      BLUE = 0xFF && ~0x04
+              
+      def success! 
+        set_colour(GREEN) 
       end
       
-      def show_failure device_handle 
-        red = 0xFF && ~0x02
-        device_handle.usb_control_msg(0xc8, 0x12, 0x020a, red,"",0)  
+      def failure!  
+        set_colour(RED) 
       end
       
-      def show_building device_handle 
-        blue = 0xFF && ~0x04
-        device_handle.usb_control_msg(0xc8, 0x12, 0x020a, blue,"",0)  
+      def building!  
+        set_colour(BLUE)
       end
       
+      def off!
+        set_colour(0xFF)
+      end
+      
+      private
+      def set_colour colour
+        @device.controlTransfer(:bmRequestType => 0xc8, :bRequest => 0x12, :wValue => 0x020a, :wIndex => colour)
+      end
       
     end
   end

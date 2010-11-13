@@ -1,56 +1,49 @@
 $:.unshift(File.dirname(__FILE__))
 
-require 'usb'
+require "ribusb"
 require 'blinky/no_supported_devices_found'
 
 module Blinky
-  class Indicator
+  class Blinky
     
     def initialize(path = File.join(File.dirname(__FILE__), '..', 'device_recipes')) 
-      @recipes = Hash.new(:default => {})
+   
       Dir["#{path}/*/*.rb"].each { |f| require(f) }
+      @recipes = Hash.new(:default => {})
       instance_eval(File.read("#{path}/recipes.rb"))
-      found_devices = []
-      USB.devices.each do |device|
+      
+      found_devices = []        
+      RibUSB::Bus.new.find.each do |device|
         found_devices << device  
         matching_recipe = @recipes[device.idVendor][device.idProduct]   
         if matching_recipe
            self.extend(matching_recipe)
-           @supported_device = device
+           @device = device
         end
       end
-      raise NoSupportedDevicesFound.new(found_devices) unless @supported_device
-      @handle = @supported_device.usb_open
+      
+      raise NoSupportedDevicesFound.new found_devices unless @device
     end
-    
 
-    
-    def success!
-      begin
-       show_success(@handle) 
-      rescue  Errno::EPIPE
-      end
-    end
-    
-    def failure!
-      begin
-       show_failure(@handle) 
-      rescue  Errno::EPIPE
-      end
-    end
-    
-    def building!
-      begin
-       show_building(@handle) 
-      rescue  Errno::EPIPE
-      end
-    end
-    
- 
-
-    def add_recipe recipe_module, details
+    def recipe recipe_module, details
        @recipes[details[:usb_vendor_id]] = {details[:usb_product_id] => recipe_module}
     end
     
   end
+  
+  def self.check_device
+    blinky = Blinky.new
+    puts "Your Device should now be indicating 'SUCCESS'"
+    blinky.success!
+    sleep(2)
+    puts "Your Device should now be indicating 'FAILURE'"
+    blinky.failure!
+    sleep(2)
+    puts "Your Device should now be indicating 'BUILDING'"
+    blinky.building!
+    sleep(2)
+    puts "CHECK COMPLETE"
+    blinky.off!
+  end
+  
 end
