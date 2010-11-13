@@ -19,7 +19,7 @@ module Blinky
       end
       
       def off!
-        set_colour(0xFF)
+        set_colour(0xFF)  
       end
       
       private

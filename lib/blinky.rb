@@ -29,6 +29,10 @@ module Blinky
        @recipes[details[:usb_vendor_id]] = {details[:usb_product_id] => recipe_module}
     end
     
+    def close
+      @device = nil
+    end
+    
   end
   
   def self.check_device
@@ -44,6 +48,7 @@ module Blinky
     sleep(2)
     puts "CHECK COMPLETE"
     blinky.off!
+    blinky.close
   end
   
 end
