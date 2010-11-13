@@ -1,0 +1,14 @@
+- To use ruby-usb you need the libusb-compat-0.1
+     - ??? make a new binding for libusb-1.0? - ribusb??
+     
+- sudo ARCHFLAGS="-arch x86_64" gem install ruby-usb
+     - might be a better way of fixing this?
+     
+- add rescue to usb.rb
+
+- names of usb_control_msg parameters are basically piffle - just send data in them
+
+- need to swap data around for some reason? low order byte * 256?
+
+- Errno::EPIPE: Broken pipe - usb_control_msg
+    why does this happen? endpoint initialization?
