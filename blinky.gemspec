@@ -10,10 +10,8 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Perryn Fowler"]
   s.date = %q{2010-11-14}
-  s.default_executable = %q{blinky}
   s.description = %q{plug and play support for USB build status indicators}
   s.email = %q{perryn.fowler@gmail.com}
-  s.executables = ["blinky"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -25,7 +23,6 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "bin/blinky",
      "blinky.gemspec",
      "lib/blinky.rb",
      "lib/blinky/no_supported_devices_found.rb",
