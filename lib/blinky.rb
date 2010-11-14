@@ -1,6 +1,6 @@
 $:.unshift(File.dirname(__FILE__))
 
-require "ribusb"
+require 'usb'
 require 'blinky/no_supported_devices_found'
 
 module Blinky
@@ -13,26 +13,22 @@ module Blinky
       instance_eval(File.read("#{path}/recipes.rb"))
       
       found_devices = []        
-      RibUSB::Bus.new.find.each do |device|
+      USB.devices.each do |device| 
         found_devices << device  
         matching_recipe = @recipes[device.idVendor][device.idProduct]   
         if matching_recipe
            self.extend(matching_recipe)
-           @device = device
+           @handle = device.usb_open
         end
       end
       
-      raise NoSupportedDevicesFound.new found_devices unless @device
+      raise NoSupportedDevicesFound.new found_devices unless @handle
     end
 
     def recipe recipe_module, details
        @recipes[details[:usb_vendor_id]] = {details[:usb_product_id] => recipe_module}
     end
-    
-    def close
-      @device = nil
-    end
-    
+        
   end
   
   def self.check_device
@@ -48,7 +44,6 @@ module Blinky
     sleep(2)
     puts "CHECK COMPLETE"
     blinky.off!
-    blinky.close
   end
   
 end

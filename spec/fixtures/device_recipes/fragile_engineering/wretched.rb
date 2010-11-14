@@ -3,7 +3,7 @@ module Blinky
     module ModelWretched
            
       def success! 
-        @device.indicate_success
+        @handle.indicate_success
       end
             
     end

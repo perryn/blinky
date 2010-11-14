@@ -24,7 +24,11 @@ module Blinky
       
       private
       def set_colour colour
-        @device.controlTransfer(:bmRequestType => 0xc8, :bRequest => 0x12, :wValue => 0x020a, :wIndex => colour)
+        begin
+         @handle.usb_control_msg(0xc8, 0x12, 0x020a, colour,"",0) 
+        rescue  Errno::EPIPE
+          # broken pipe error are always thrown here - this is fixed in the ribusb branch
+        end  
       end
       
     end

@@ -81,9 +81,10 @@ module Blinky
       end
  
      def connected_devices= devices
-       bus = mock("bus")
-       RibUSB::Bus.stub(:new).and_return(bus)
-       bus.stub!(:find).and_return(devices)
+             devices.each do |device|
+               device.stub!(:usb_open).and_return(device)
+             end
+             USB.stub!(:devices).and_return(devices)
      end
      
    end   

@@ -3,7 +3,7 @@ module Blinky
     module Model462
            
       def success! 
-        @device.indicate_success
+        @handle.indicate_success
       end
             
     end
