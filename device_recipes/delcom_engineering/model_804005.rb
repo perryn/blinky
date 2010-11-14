@@ -5,7 +5,8 @@ module Blinky
       GREEN = 0xFF && ~0x01
       RED = 0xFF && ~0x02
       BLUE = 0xFF && ~0x04
-              
+      YELLOW = 0xFF && ~0x03
+             
       def success! 
         set_colour(GREEN) 
       end
@@ -16,6 +17,10 @@ module Blinky
       
       def building!  
         set_colour(BLUE)
+      end
+      
+      def warning!
+        set_colour(YELLOW)
       end
       
       def off!

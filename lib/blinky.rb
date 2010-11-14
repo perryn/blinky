@@ -42,6 +42,9 @@ module Blinky
     puts "Your Device should now be indicating 'BUILDING'"
     blinky.building!
     sleep(2)
+    puts "Your Device should now be indicating 'WARNING'"
+    blinky.warning!
+    sleep(2)
     puts "CHECK COMPLETE"
     blinky.off!
   end
