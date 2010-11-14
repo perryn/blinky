@@ -41,23 +41,5 @@ module Blinky
     end
         
   end
-  
-  def self.check_device
-    blinky = Blinky.new
-    puts "Your Device should now be indicating 'SUCCESS'"
-    blinky.success!
-    sleep(2)
-    puts "Your Device should now be indicating 'FAILURE'"
-    blinky.failure!
-    sleep(2)
-    puts "Your Device should now be indicating 'BUILDING'"
-    blinky.building!
-    sleep(2)
-    puts "Your Device should now be indicating 'WARNING'"
-    blinky.warning!
-    sleep(2)
-    puts "CHECK COMPLETE"
-    blinky.off!
-  end
-  
+    
 end

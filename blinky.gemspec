@@ -26,15 +26,21 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "bin/blinky",
-     "device_recipes/delcom_engineering/model_804005.rb",
-     "device_recipes/recipes.rb",
+     "blinky.gemspec",
      "lib/blinky.rb",
      "lib/blinky/no_supported_devices_found.rb",
+     "lib/ci_server_plugins/test_server_plugin.rb",
+     "lib/device_recipes/delcom_engineering/model_804005.rb",
+     "lib/plugins.rb",
+     "lib/recipes.rb",
      "notes.txt",
      "spec/blinky_spec.rb",
+     "spec/ci_server_plugins/test_server_plugin_spec.rb",
+     "spec/fixtures/ci_server_plugins/mock_ci_server.rb",
      "spec/fixtures/device_recipes/aenima_engineering/462.rb",
      "spec/fixtures/device_recipes/fragile_engineering/wretched.rb",
-     "spec/fixtures/device_recipes/recipes.rb",
+     "spec/fixtures/plugins.rb",
+     "spec/fixtures/recipes.rb",
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/perryn/blinky}
@@ -44,9 +50,12 @@ Gem::Specification.new do |s|
   s.summary = %q{helps you see the light}
   s.test_files = [
     "spec/blinky_spec.rb",
+     "spec/ci_server_plugins/test_server_plugin_spec.rb",
+     "spec/fixtures/ci_server_plugins/mock_ci_server.rb",
      "spec/fixtures/device_recipes/aenima_engineering/462.rb",
      "spec/fixtures/device_recipes/fragile_engineering/wretched.rb",
-     "spec/fixtures/device_recipes/recipes.rb",
+     "spec/fixtures/plugins.rb",
+     "spec/fixtures/recipes.rb",
      "spec/spec_helper.rb"
   ]
 
