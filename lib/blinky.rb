@@ -6,11 +6,18 @@ require 'blinky/no_supported_devices_found'
 module Blinky
   class Blinky
     
-    def initialize(path = File.join(File.dirname(__FILE__), '..', 'device_recipes')) 
+    def initialize(path = File.dirname(__FILE__)) 
    
-      Dir["#{path}/*/*.rb"].each { |f| require(f) }
+      Dir["#{path}/device_recipes/**/*.rb"].each { |f| require(f) }
+      Dir["#{path}/ci_server_plugins/**/*.rb"].each { |f| require(f) }
       @recipes = Hash.new(:default => {})
+      @plugins = []
       instance_eval(File.read("#{path}/recipes.rb"))
+      instance_eval(File.read("#{path}/plugins.rb"))
+      
+      @plugins.each do |plugin|
+        self.extend(plugin)
+      end
       
       found_devices = []        
       USB.devices.each do |device| 
@@ -27,6 +34,10 @@ module Blinky
 
     def recipe recipe_module, details
        @recipes[details[:usb_vendor_id]] = {details[:usb_product_id] => recipe_module}
+    end
+    
+    def plugin plugin_module
+      @plugins << plugin_module
     end
         
   end

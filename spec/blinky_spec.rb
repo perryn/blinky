@@ -12,7 +12,7 @@ module Blinky
           @supported_device,
           OpenStruct.new(:idVendor => 0x5678, :idProduct => 0x1234)     
           ]
-        @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures/device_recipes")
+        @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures")
       end
 
       it "can call recipe methods on the device" do
@@ -35,7 +35,7 @@ module Blinky
       it "will complain" do
         exception = Exception.new("foo")
         NoSupportedDevicesFound.should_receive(:new).with(@devices).and_return(exception)
-        lambda{Blinky.new("#{File.dirname(__FILE__)}/fixtures/device_recipes")}.should raise_error("foo")                
+        lambda{Blinky.new("#{File.dirname(__FILE__)}/fixtures")}.should raise_error("foo")                
       end
       
      end
@@ -53,7 +53,7 @@ module Blinky
        it "will complain" do
          exception = Exception.new("foo")
          NoSupportedDevicesFound.should_receive(:new).with(@devices).and_return(exception)
-         lambda{Blinky.new("#{File.dirname(__FILE__)}/fixtures/device_recipes")}.should raise_error("foo")                
+         lambda{Blinky.new("#{File.dirname(__FILE__)}/fixtures")}.should raise_error("foo")                
        end
 
       end
@@ -69,13 +69,26 @@ module Blinky
             @supported_device_one,
             @supported_device_two    
             ]
-          @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures/device_recipes")
+          @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures")
         end
 
         it "will choose the second device" do
           @supported_device_one.should_not_receive(:indicate_success)
           @supported_device_two.should_receive(:indicate_success)
           @blinky.success!                  
+        end
+      end
+      
+      describe "that is asked to watch a supported CI server" do
+
+        before(:each) do      
+          self.connected_devices = [OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x1111)]
+          @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures")
+        end
+
+        it "can receive call backs from the server" do
+          @blinky.should_receive(:notify_build_status)
+          @blinky.watch_mock_ci_server                  
         end
 
       end

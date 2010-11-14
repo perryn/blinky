@@ -1,11 +1,6 @@
 module Blinky
   module DelcomEngineering
     module Model804005
-      
-      GREEN = 0xFF && ~0x01
-      RED = 0xFF && ~0x02
-      BLUE = 0xFF && ~0x04
-      YELLOW = 0xFF && ~0x03
              
       def success! 
         set_colour(GREEN) 
@@ -35,6 +30,11 @@ module Blinky
           # broken pipe error are always thrown here - this is fixed in the ribusb branch
         end  
       end
+      
+      GREEN = 0xFF && ~0x01
+      RED = 0xFF && ~0x02
+      BLUE = 0xFF && ~0x04
+      YELLOW = 0xFF && ~0x03
       
     end
   end
