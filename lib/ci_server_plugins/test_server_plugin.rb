@@ -30,7 +30,7 @@ module Blinky
       success!
       sleep(2)
       puts "-"
-      
+        
       puts "TEST OVER\n"
       off!
       

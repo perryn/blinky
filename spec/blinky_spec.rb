@@ -6,7 +6,7 @@ module Blinky
     describe "that has a supported device connected" do
   
       before(:each) do
-        @supported_device = OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x1111)       
+        @supported_device = OpenStruct.new(:idVendor => 0x2000, :idProduct => 0x2222)       
         self.connected_devices = [
           OpenStruct.new(:idVendor => 0x1234, :idProduct => 0x5678),
           @supported_device,
@@ -21,6 +21,25 @@ module Blinky
       end
       
     end
+    
+    describe "that supports two devices from the same vendor" do
+     
+       it "can call recipe methods on the first device" do
+         supported_device_one = OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x1111)       
+         self.connected_devices = [supported_device_one]
+         @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures")
+         supported_device_one.should_receive(:indicate_success)
+         @blinky.success!                  
+       end
+
+        it "can call recipe methods on the second device" do
+          supported_device_two = OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x2222)       
+          self.connected_devices = [supported_device_two]
+          @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures")
+          supported_device_two.should_receive(:indicate_success)
+          @blinky.success!                 
+        end
+     end
               
     describe "that has no supported devices connected" do
 
@@ -57,7 +76,8 @@ module Blinky
        end
 
       end
-      
+    
+          
       describe "that has two supported devices connected" do
 
         before(:each) do
@@ -78,6 +98,8 @@ module Blinky
           @blinky.success!                  
         end
       end
+      
+      
       
       describe "that is asked to watch a supported CI server" do
 
