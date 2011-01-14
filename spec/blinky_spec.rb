@@ -23,7 +23,7 @@ module Blinky
     end
     
     describe "that supports two devices from the same vendor" do
-     
+      
        it "can call recipe methods on the first device" do
          supported_device_one = OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x1111)       
          self.connected_devices = [supported_device_one]
@@ -76,8 +76,7 @@ module Blinky
        end
 
       end
-    
-          
+             
       describe "that has two supported devices connected" do
 
         before(:each) do
@@ -98,9 +97,7 @@ module Blinky
           @blinky.success!                  
         end
       end
-      
-      
-      
+        
       describe "that is asked to watch a supported CI server" do
 
         before(:each) do      

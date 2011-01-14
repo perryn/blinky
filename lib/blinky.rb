@@ -4,12 +4,13 @@ require 'usb'
 require 'blinky/no_supported_devices_found'
 
 module Blinky
+  
+  def self.new
+    Blinky.new
+  end
+  
   class Blinky
-    
-    def device
-      @device
-    end
-    
+       
     def initialize(path = File.dirname(__FILE__)) 
    
       Dir["#{path}/device_recipes/**/*.rb"].each { |f| require(f) }
@@ -23,13 +24,14 @@ module Blinky
         self.extend(plugin)
       end
       found_devices = []  
+          
+      @handle = nil
             
       USB.devices.each do |device| 
         found_devices << device  
         matching_recipe = @recipes[device.idVendor][device.idProduct] 
         if matching_recipe
            self.extend(matching_recipe)
-           @device = device
            @handle = device.usb_open
         end
       end

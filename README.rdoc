@@ -1,16 +1,90 @@
 = blinky
 
-Description goes here.
+blinky helps you see the light - get a build light up and running in a few minutes.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+== Why blinky?
+
+Setting up a build light on a new project always seems to be more of a hassle than it should be. Somehow it always seems that no one else has ever dealt with the exact combination of OS, CI Server and build light that you have in your sweaty little hands, and you have to write something from scratch. Again.
+
+blinky is an attempt to fix that.
+
+blinky aims to supply plug and play support for all combinations of
+* USB Light Model (or any other USB Device used to indicate build status)
+* Operating System
+
+== How do I use blinky?
+
+Plug in your USB light, and then do something like this
+    
+  require 'rubygems'
+  require 'blinky'
+
+  blinky = Blinky.new
+    
+You can also manipulate the light directly 
+  
+  blinky.success!
+  blinky.failure!
+  blinky.building!
+  blinky.warning!
+  blinky.off!
+
+
+== What is currently supported?
+
+=== Lights/ Build Indicators
+* Delcom Engineering USB Visual Indicator Generation I
+* Delcom Engineering USB Visual Indicator Generation II
+     
+=== Operating Systems
+* OSX
+* Linux
+* Windows (Theoretically)
+    
+NOTE: I haven't been able to test fully on Windows yet. Any assistance with doing so, and/or providing more complete installation instructions would be gratefully received.
+
+== How Do I install blinky?
+
+=== 1) Install support for lib-usb-0.1 (http://www.libusb.org)
+
+==== OSX and Linux
+    
+Install lib-usb-1.0 and the lib-usb-compat-0.1 layer with your favourite package manager.
+    
+For example, on OSX
+    
+  brew install libusb-compat
+    
+==== Windows
+         
+install lib-usb-win32. See http://www.libusb.org/wiki/libusb-win32
+     
+(Despite the name, this apparently supports both win-32 and win-64)
+     
+=== 2) Install the blinky gem
+
+  gem install blinky
+      
+NOTE: on OSX will probably need to provide your machine architecture. For example:
+      
+  ARCHFLAGS="-arch x86_64" gem install blinky
+      
+=== 3) Test your installation
+
+Plug in your light and then do this:
+
+  require 'rubygems'
+  require 'blinky'
+
+  blinky = Blinky.new
+  blinky.watch_test_server
+      
+Watch the pretty lights!
+      
+== How do I contribute support for more lights 
+
+COMING SOON
+
 
 == Copyright
 

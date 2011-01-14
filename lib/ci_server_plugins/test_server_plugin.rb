@@ -16,7 +16,7 @@ module Blinky
       sleep(2)
       puts "-"
             
-      puts "I AM 12 AND WHAT IS THIS?\n"
+      puts "WARNING!\n"
       warning!
       sleep(2)
       puts "-"
