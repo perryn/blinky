@@ -19,10 +19,7 @@ Plug in your USB light, and then do something like this
   require 'rubygems'
   require 'blinky'
 
-  blinky = Blinky.new
-    
-You can also manipulate the light directly 
-  
+  blinky = Blinky.new  
   blinky.success!
   blinky.failure!
   blinky.building!
