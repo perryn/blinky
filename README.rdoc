@@ -19,13 +19,28 @@ Plug in your USB light, and then do something like this
   require 'rubygems'
   require 'blinky'
 
-  blinky = Blinky.new  
-  blinky.success!
-  blinky.failure!
-  blinky.building!
-  blinky.warning!
-  blinky.off!
+  blinky = Blinky.new.light  
+  light.success!
+  light.failure!
+  light.building!
+  light.warning!
+  light.off!
 
+== What if I have more than one light? 
+
+Want to plug in more than one light on the same machine? 
+
+   require 'rubygems'
+   require 'blinky'
+
+   blinky = Blinky.new
+   light_one = blinky.lights[0]
+   light_two = blinky.lights[1]
+
+Not sure which light is which?
+
+   # make light_one flash
+   light_one.where_are_you?
 
 == What is currently supported?
 
@@ -77,26 +92,7 @@ Plug in your light and then do this:
   blinky.light.watch_test_server
       
 Watch the pretty lights!
-
-== What if I have more than one light? 
-
-Want to plug in more than one light on the same machine? 
-   
-   require 'rubygems'
-   require 'blinky'
-
-   blinky = Blinky.new
-   light_one = blinky.lights[0]
-   light_two = blinky.lights[1]
-   
-Not sure which light is which?
-   
-   # make light_one flash
-   light_one.where_are_you? 
-
-   
-
-     
+  
 == How do I contribute support for more lights 
 
 COMING SOON
