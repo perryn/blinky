@@ -76,7 +76,7 @@ and so on
 Windows can be a bit fiddly. The following is how I got a Delcomm II light to work on a Windows 7 laptop.
 Further experience reports/better instructions would be gratefully received.
 
-* installed Zadig (https://github.com/pbatard/libwdi/wiki#wiki-Downloads)
+* installed Zadig (http://github.com/pbatard/libwdi/wiki#wiki-Downloads)
 * plugged in the USB light
   * at this point windows 'helpfully' installed an incorrect 'USB Input device' driver
 * opened Zadig and selected 'Options -> List All Devices'
