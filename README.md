@@ -51,9 +51,7 @@ Not sure which light is which?
 === Operating Systems
 * OSX
 * Linux
-* Windows (Theoretically)
-    
-NOTE: I haven't been able to test fully on Windows yet. Any assistance with doing so, and/or providing more complete installation instructions would be gratefully received.
+* Windows 
 
 == How Do I install blinky?
 
@@ -63,24 +61,32 @@ NOTE: I haven't been able to test fully on Windows yet. Any assistance with doin
     
 Install lib-usb-1.0 with your favourite package manager.
     
-For example, on OSX
+For example, on OSX:
     
   brew install libusb
+  
+on Debian or Ubuntu:
+
+  $ sudo apt-get install libusb-1.0-0-dev  
+
+and so on
     
 ==== Windows
-         
-install lib-usb-win32. See http://www.libusb.org/wiki/libusb-win32
      
-(Despite the name, this apparently supports both win-32 and win-64)
-     
+Windows can be a bit fiddly. The following is how I got a Delcomm II light to work on a Windows 7 laptop.
+Further experience reports/better instructions would be gratefully received.
+
+* installed Zadig (https://github.com/pbatard/libwdi/wiki#wiki-Downloads)
+* plugged in the USB light
+  * at this point windows 'helpfully' installed an incorrect 'USB Input device' driver
+* opened Zadig and selected 'Options -> List All Devices'
+* Selected 'USB Input Device' in the Zadig drop-down
+* Clicked on 'Replace Driver' and confirmed in the popup dialog
+              
 === 2) Install the blinky gem
 
   gem install blinky
-      
-NOTE: on OSX will probably need to provide your machine architecture. For example:
-      
-  ARCHFLAGS="-arch x86_64" gem install blinky
-      
+            
 === 3) Test your installation
 
 Plug in your light and then do this:

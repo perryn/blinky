@@ -6,6 +6,7 @@ require 'blinky/version'
 Gem::Specification.new do |gem|
   gem.name          = "blinky"
   gem.version       = Blinky::VERSION
+  gem.summary = %q{helps you see the light}
   gem.authors       = ["Perryn Fowler"]
   gem.email         = ["perryn.fowler@gmail.com"]
   gem.description   = %q{plug and play support for USB build status indicators}

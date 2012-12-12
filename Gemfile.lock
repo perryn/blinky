@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    blinky (0.0.3)
+    blinky (0.0.4)
       libusb (~> 0.2.2)
 
 GEM
