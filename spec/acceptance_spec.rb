@@ -6,11 +6,11 @@ module Blinky
     describe "that has a supported device connected" do
   
       before(:each) do
-        @supported_device = OpenStruct.new(:idVendor => 0x2000, :idProduct => 0x2222)       
+        @supported_device = double("supported device",:idVendor => 0x2000, :idProduct => 0x2222)       
         self.connected_devices = [
-          OpenStruct.new(:idVendor => 0x1234, :idProduct => 0x5678),
+          double("unsupported device A",:idVendor => 0x1234, :idProduct => 0x5678),
           @supported_device,
-          OpenStruct.new(:idVendor => 0x5678, :idProduct => 0x1234)     
+          double("unsupported device B",:idVendor => 0x5678, :idProduct => 0x1234)     
           ]
         @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures")
       end
@@ -46,7 +46,7 @@ module Blinky
     describe "that supports two devices from the same vendor" do
       
        it "can provide a light that can control the first device" do
-         supported_device_one = OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x1111)       
+         supported_device_one = double("supported device one", :idVendor => 0x1000, :idProduct => 0x1111)       
          self.connected_devices = [supported_device_one]
          @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures")
          supported_device_one.should_receive(:indicate_success)
@@ -54,7 +54,7 @@ module Blinky
        end
 
         it "can provide a light that can control the second device" do
-          supported_device_two = OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x2222)       
+          supported_device_two = double("supported device two", :idVendor => 0x1000, :idProduct => 0x2222)       
           self.connected_devices = [supported_device_two]
           @blinky = Blinky.new("#{File.dirname(__FILE__)}/fixtures")
           supported_device_two.should_receive(:indicate_success)
@@ -66,8 +66,8 @@ module Blinky
 
       before(:each) do
         @devices = [
-          OpenStruct.new(:idVendor => 0x1234, :idProduct => 0x5678),
-          OpenStruct.new(:idVendor => 0x5678, :idProduct => 0x1234)     
+           double("unsupported device", :idVendor => 0x1234, :idProduct => 0x5678),
+           double("unsupported device", :idVendor => 0x5678, :idProduct => 0x1234)     
           ]
           self.connected_devices= @devices
       end
@@ -84,8 +84,8 @@ module Blinky
 
        before(:each) do
          @devices = [
-           OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x5678),
-           OpenStruct.new(:idVendor => 0x5678, :idProduct => 0x1234)     
+           double("unsupported device from known vendor", :idVendor => 0x1000, :idProduct => 0x5678),
+           double("unsupported device", :idVendor => 0x5678, :idProduct => 0x1234)     
            ]
            self.connected_devices= @devices
        end
@@ -101,11 +101,11 @@ module Blinky
       describe "that has two supported devices connected" do
 
         before(:each) do
-          @supported_device_one = OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x1111)  
-          @supported_device_two = OpenStruct.new(:idVendor => 0x2000, :idProduct => 0x2222)      
+          @supported_device_one = double("supported device A",:idVendor => 0x1000, :idProduct => 0x1111)  
+          @supported_device_two = double("supported device B",:idVendor => 0x2000, :idProduct => 0x2222)      
           
           self.connected_devices = [
-            OpenStruct.new(:idVendor => 0x1234, :idProduct => 0x5678),
+            double("unsupported device", :idVendor => 0x1234, :idProduct => 0x5678),
             @supported_device_one,
             @supported_device_two    
             ]
@@ -128,7 +128,7 @@ module Blinky
       describe "that provides a light that is asked to watch a supported CI server" do
 
         before(:each) do      
-          self.connected_devices = [OpenStruct.new(:idVendor => 0x1000, :idProduct => 0x1111)]
+          self.connected_devices = [double("device",:idVendor => 0x1000, :idProduct => 0x1111)]
           @light = Blinky.new("#{File.dirname(__FILE__)}/fixtures").light
         end
 
