@@ -3,20 +3,24 @@ module Blinky
     module VisualIndicator
       module GenerationII
 
-        def success! 
+        def success!
+          off! 
           set_colour("\x01") 
         end
 
         def failure!  
+          off!
           set_colour("\x02") 
         end
 
-        def building!  
+        def building!
+          off!  
           set_colour("\x04")
         end
 
         def warning!
-          set_colour("\x07")
+          off!
+          set_colour("\x06")
         end
 
         def off!
