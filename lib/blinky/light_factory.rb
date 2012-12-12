@@ -8,7 +8,7 @@ module Blinky
         found_devices << device  
         matching_recipe = recipes[device.idVendor][device.idProduct] 
         if matching_recipe
-          lights << Light.new(device.usb_open, matching_recipe, plugins)
+          lights << Light.new(device.open, matching_recipe, plugins)
         end
       end
       raise NoSupportedDevicesFound.new found_devices if lights.empty?

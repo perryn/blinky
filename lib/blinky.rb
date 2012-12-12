@@ -1,6 +1,6 @@
 $:.unshift(File.dirname(__FILE__))
 
-require 'usb'
+require 'libusb/compat'
 require 'blinky/no_supported_devices_found'
 require 'blinky/light'
 require 'blinky/light_factory'
