@@ -57,15 +57,15 @@ NOTE: I haven't been able to test fully on Windows yet. Any assistance with doin
 
 == How Do I install blinky?
 
-=== 1) Install support for lib-usb-0.1 (http://www.libusb.org)
+=== 1) Install support for lib-usb-1.0 (http://www.libusb.org)
 
 ==== OSX and Linux
     
-Install lib-usb-1.0 and the lib-usb-compat-0.1 layer with your favourite package manager.
+Install lib-usb-1.0 with your favourite package manager.
     
 For example, on OSX
     
-  brew install libusb-compat
+  brew install libusb
     
 ==== Windows
          
