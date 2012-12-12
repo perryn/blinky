@@ -1,6 +1,6 @@
 module Blinky
   class LightFactory
-    
+
     def self.detect_lights plugins, recipes
       lights = []
       found_devices = [] 
@@ -14,6 +14,6 @@ module Blinky
       raise NoSupportedDevicesFound.new found_devices if lights.empty?
       lights
     end
-   
+
   end
 end

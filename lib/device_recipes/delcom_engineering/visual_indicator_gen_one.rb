@@ -2,27 +2,27 @@ module Blinky
   module DelcomEngineering
     module VisualIndicator
       module GenerationI
-             
+
         def success! 
           set_colour(0xFF && ~0x01) 
         end
-      
+
         def failure!  
           set_colour(0xFF && ~0x02) 
         end
-      
+
         def building!  
           set_colour(0xFF && ~0x04)
         end
-      
+
         def warning!
           set_colour(0xFF && ~0x03)
         end
-      
+
         def off!
           set_colour(0xFF)  
         end
-      
+
         private
         def set_colour colour
           begin

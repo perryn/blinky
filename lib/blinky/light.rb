@@ -1,14 +1,14 @@
 module Blinky
   class Light
-    
+
     def initialize device_handle, recipe, plugins
-        @handle = device_handle
-        self.extend(recipe)   
-        plugins.each do |plugin|
-            self.extend(plugin)
-        end          
+      @handle = device_handle
+      self.extend(recipe)   
+      plugins.each do |plugin|
+        self.extend(plugin)
+      end          
     end
-    
+
     def where_are_you?
       5.times do
         failure!
@@ -18,6 +18,6 @@ module Blinky
       end
       off!      
     end
-    
+
   end
 end
