@@ -3,7 +3,7 @@ require 'chicanery'
 module Blinky
   module CCTrayServer
     include Chicanery
-
+     
     def watch_cctray_server url, options = {}    
       server Chicanery::Cctray.new 'blinky build', url, options
 

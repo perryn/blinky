@@ -117,11 +117,21 @@ Plug in your light and then do this:
   blinky.light.watch_test_server
       
 Watch the pretty lights!
-  
-== How do I contribute support for more lights 
 
-COMING SOON
+== Blinky doesn't quite do what I want
 
+The watch_cctray_server method is a very simple approach, but its easy to do something more sophisticated by writing your own plugin - see "How do I contribute support for more ci servers?" below.
+
+Or if you want to get really fancy, take a look at {Chicanery}[http://github.com/markryall/chicanery] and use it to control blinky any way you want.
+   
+== How do I contribute support for more lights? 
+
+Take a look at the classes in device_recipes then write your own!
+
+== How do I contribute support for more ci servers? 
+
+Take a look at the classes in ci_server plugins then write your own!
+You will probably find {Chicanery}[http://github.com/markryall/chicanery] very useful when doing this.
 
 == Copyright
 
