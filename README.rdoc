@@ -65,7 +65,7 @@ Not sure which light is which?
 * Windows 
 
 === CI Servers
-Any server that supports the cctray (http://confluence.public.thoughtworks.org/display/CI/Multiple+Project+Summary+Reporting+Standard) xml format, including among others:
+Any server that supports the {cctray}[http://confluence.public.thoughtworks.org/display/CI/Multiple+Project+Summary+Reporting+Standard]  xml format, including among others:
 
 * Go - watch https://go-server:8154/go/cctray.xml
 * Jenkins/Hudson - watch http://jenkins-server:8080/cc.xml
