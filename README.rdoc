@@ -13,6 +13,7 @@ blinky is an attempt to fix that.
 blinky aims to supply plug and play support for all combinations of
 * USB Light Model (or any other USB Device used to indicate build status)
 * Operating System
+* CI Server
 
 == How do I use blinky?
 
@@ -21,13 +22,21 @@ Plug in your USB light, and then do something like this
   require 'rubygems'
   require 'blinky'
 
-  blinky = Blinky.new.light  
+  blinky = Blinky.new.light 
+  light.watch_cctray_server http://your.ci.server/cctray.xml 
+  
+Or, with basic authentication
+
+  light.watch_cctray_server http://your.ci.server/cctray.xml, {:user => 'user', :password => 'password'}  
+  
+Or, you can just control the light directly
+  
   light.success!
   light.failure!
   light.building!
   light.warning!
   light.off!
-
+  
 == What if I have more than one light? 
 
 Want to plug in more than one light on the same machine? 
@@ -54,6 +63,14 @@ Not sure which light is which?
 * OSX
 * Linux
 * Windows 
+
+=== CI Servers
+Any server that supports the cctray (http://confluence.public.thoughtworks.org/display/CI/Multiple+Project+Summary+Reporting+Standard) xml format, including among others:
+
+* Go - watch https://go-server:8154/go/cctray.xml
+* Jenkins/Hudson - watch http://jenkins-server:8080/cc.xml
+* travis - watch https://api.travis-ci.org/repositories/owner/project/cc.xml
+* tddium - watch 'Configure with CCMenu' (something like https://api.tddium.com/cc/long_uuid_string/cctray.xml)
 
 == How Do I install blinky?
 

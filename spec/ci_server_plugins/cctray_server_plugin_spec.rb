@@ -17,9 +17,14 @@ module Blinky
     end
 
     it "watches a Chicanery Cctray server at the provided url" do    
-      Chicanery::Cctray.should_receive(:new).with("blinky build", "SOME_URL").and_return(@stub_cctray)
+      Chicanery::Cctray.should_receive(:new).with("blinky build", "SOME_URL", {}).and_return(@stub_cctray)
       @blinky.watch_cctray_server "SOME_URL"
     end
+    
+    it "watches a Chicanery Cctray server at the provided url and options" do    
+       Chicanery::Cctray.should_receive(:new).with("blinky build", "SOME_URL", {:foo => :bar}).and_return(@stub_cctray)
+       @blinky.watch_cctray_server "SOME_URL", {:foo => :bar}
+     end
 
     it "polls every 15 seconds" do
       @blinky.should_receive(:run_every).with(15)
