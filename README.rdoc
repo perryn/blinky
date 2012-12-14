@@ -1,8 +1,9 @@
 = blinky
 
 blinky helps you see the light
-plug and play set up for build lights 
-get a build light up and running in a few minutes.
+
+* plug and play set up for build lights 
+* get a build light up and running in a few minutes.
 
 == Why blinky?
 
