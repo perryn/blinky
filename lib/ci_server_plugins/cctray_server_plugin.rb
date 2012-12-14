@@ -10,8 +10,13 @@ module Blinky
       when_run do |current_state|
         current_state.has_failure? ? failure! : success!
       end
-
-      run_every 15
+      
+      begin
+        run_every 15
+      rescue => e
+        warning!
+        raise e
+      end
     end
   end
 end

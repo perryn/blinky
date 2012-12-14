@@ -30,6 +30,12 @@ module Blinky
       @blinky.should_receive(:run_every).with(15)
       @blinky.watch_cctray_server "SOME_URL"
     end
+    
+    it "warns if something goes wrong" do
+      @blinky.should_receive(:run_every).and_raise "oh no!"
+      @blinky.should_receive(:warning!)
+      expect{@blinky.watch_cctray_server "SOME_URL"}.to raise_error("oh no!")
+    end
 
     it "registers a chinanery run halder that indicates failure when current status has failures" do
       run_handler = nil
