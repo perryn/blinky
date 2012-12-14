@@ -13,7 +13,9 @@ module Blinky
     before do
 
       @device_one =  double("device one", :idVendor => 0x1234, :idProduct => 0x5678)
+      @device_one.stub(:open).and_return(@device_one) 
       @device_two =  double("device two",:idVendor => 0x5678, :idProduct => 0x1234) 
+      @device_two.stub(:open).and_return(@device_two) 
       @connected_devices = [@device_one, @device_two]
       self.connected_devices = @connected_devices
 
