@@ -75,23 +75,23 @@ Any server that supports the {cctray}[http://confluence.public.thoughtworks.org/
 
 == How Do I install blinky?
 
-=== 1) Install support for lib-usb-1.0 (http://www.libusb.org)
-
-==== OSX and Linux
+=== OSX and Linux
     
-Install lib-usb-1.0 with your favourite package manager.
+Install lib-usb-1.0 with your favourite package manager, and then install the blinky gem
     
 For example, on OSX:
     
   brew install libusb
+  gem install blinky
   
 on Debian or Ubuntu:
 
-  $ sudo apt-get install libusb-1.0-0-dev  
+  apt-get install libusb-1.0-0-dev
+  gem install blinky  
 
 and so on
     
-==== Windows
+=== Windows
      
 Windows can be a bit fiddly. The following is how I got a Delcomm II light to work on a Windows 7 laptop.
 Further experience reports/better instructions would be gratefully received.
@@ -102,12 +102,9 @@ Further experience reports/better instructions would be gratefully received.
 * opened Zadig and selected 'Options -> List All Devices'
 * Selected 'USB Input Device' in the Zadig drop-down
 * Clicked on 'Replace Driver' and confirmed in the popup dialog
-              
-=== 2) Install the blinky gem
-
-  gem install blinky
-            
-=== 3) Test your installation
+* installed the blinky gem
+                          
+=== Test your installation
 
 Plug in your light and then do this:
 
