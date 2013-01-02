@@ -19,7 +19,7 @@ module Blinky
 
       def warning!
         stop
-        set_colour("\xFF\xBE\x00") 
+        set_colour("\xFF\x2A\x00") 
       end
 
       def off!
