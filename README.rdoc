@@ -57,9 +57,9 @@ Not sure which light is which?
 == What is currently supported?
 
 === Lights/ Build Indicators
-* {ThingM blink(1)} [http://www.kickstarter.com/projects/thingm/blink1-the-usb-rgb-led]
-* {Delcom Engineering USB Visual Indicator Generation I} [http://www.delcomproducts.com/products_usblmp.asp]
-* {Delcom Engineering USB Visual Indicator Generation II} [http://www.delcomproducts.com/products_usblmp.asp]
+* {ThingM blink(1)}[http://www.kickstarter.com/projects/thingm/blink1-the-usb-rgb-led]
+* {Delcom Engineering USB Visual Indicator Generation I}[http://www.delcomproducts.com/products_usblmp.asp]
+* {Delcom Engineering USB Visual Indicator Generation II}[http://www.delcomproducts.com/products_usblmp.asp]
 
 === Operating Systems
 * OSX
