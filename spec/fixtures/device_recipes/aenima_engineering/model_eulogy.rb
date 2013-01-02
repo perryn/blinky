@@ -6,6 +6,9 @@ module Blinky
         @handle.indicate_success
       end
 
+      def init
+      end
+      
     end
   end
 end

@@ -5,6 +5,9 @@ module Blinky
       def success! 
         @handle.indicate_success
       end
+      
+      def init
+      end
 
     end
   end

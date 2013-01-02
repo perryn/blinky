@@ -6,7 +6,8 @@ module Blinky
       self.extend(recipe)   
       plugins.each do |plugin|
         self.extend(plugin)
-      end          
+      end    
+      self.init      
     end
 
     def where_are_you?

@@ -27,6 +27,9 @@ module Blinky
           set_colour("\x00")  
         end
 
+        def init
+        end
+
         private
         def set_colour colour
           @handle.usb_control_msg(0x21, 0x09, 0x0635, 0x000, "\x65\x0C#{colour}\xFF\x00\x00\x00\x00", 0)

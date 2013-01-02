@@ -6,7 +6,12 @@ module Blinky
     module TestModel           
       def success! 
         @handle.indicate_success
-      end         
+      end   
+      
+      def init
+        @handle.init
+      end
+            
     end
   end
 
@@ -24,11 +29,18 @@ module Blinky
 
 
   describe "Light" do
+ 
+    it "will use device recipe to initialise itself on construction" do
+        supported_device = double("supported device",:idVendor => 0x2000, :idProduct => 0x2222) 
+        supported_device.should_receive(:init)
+        Light.new(supported_device, TestEngineering::TestModel, [MockCiPlugin, AnotherMockCiPlugin ] )
+    end
 
     describe "that has been constructed with a device, a device recipe, and some CI plugins" do
 
       before(:each) do
-        @supported_device = double("supported device",:idVendor => 0x2000, :idProduct => 0x2222)      
+        @supported_device = double("supported device",:idVendor => 0x2000, :idProduct => 0x2222) 
+        @supported_device.stub(:init)   
         @light = Light.new(@supported_device, TestEngineering::TestModel, [MockCiPlugin, AnotherMockCiPlugin ] )
       end
 

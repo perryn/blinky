@@ -14,6 +14,9 @@ module Blinky
         @handle.turn_off 
       end
 
+      def init
+      end
+
     end
   end
 end
