@@ -16,7 +16,7 @@ blinky aims to supply plug and play support for all combinations of
 * Operating System
 * CI Server
 
-<img src="https://raw.github.com/perryn/blinky/master/lights.jpg">
+http://raw.github.com/perryn/blinky/master/lights.jpg
 
 == How do I use blinky?
 
