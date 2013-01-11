@@ -16,6 +16,8 @@ blinky aims to supply plug and play support for all combinations of
 * Operating System
 * CI Server
 
+https://raw.github.com/perryn/blinky/master/lights.jpg
+
 == How do I use blinky?
 
 Plug in your USB light, and then do something like this
@@ -58,6 +60,7 @@ Not sure which light is which?
 
 === Lights/ Build Indicators
 * {ThingM blink(1)}[http://www.kickstarter.com/projects/thingm/blink1-the-usb-rgb-led]
+* {Dream Cheeky Webmail Notifier}[http://www.dreamcheeky.com/webmail-notifier]
 * {Delcom Engineering USB Visual Indicator Generation I}[http://www.delcomproducts.com/products_usblmp.asp]
 * {Delcom Engineering USB Visual Indicator Generation II}[http://www.delcomproducts.com/products_usblmp.asp]
 
