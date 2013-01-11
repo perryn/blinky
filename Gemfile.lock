@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    blinky (0.0.5)
+    blinky (0.0.10)
       chicanery (~> 0.0.7)
       libusb (~> 0.2.2)
 
