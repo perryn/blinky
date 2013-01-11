@@ -15,7 +15,7 @@ blinky aims to supply plug and play support for all combinations of
 * USB Light Model (or any other USB Device used to indicate build status)
 * Operating System
 * CI Server
-
+{<img src="https://raw.github.com/perryn/blinky/master/lights.jpg">}[https://raw.github.com/perryn/blinky/master/lights.jpg]
 == How do I use blinky?
 
 Plug in your USB light, and then do something like this
