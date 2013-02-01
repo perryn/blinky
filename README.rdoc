@@ -27,7 +27,7 @@ Plug in your USB light, and then do something like this
   require 'rubygems'
   require 'blinky'
 
-  blinky = Blinky.new.light 
+  light = Blinky.new.light 
   light.watch_cctray_server http://your.ci.server/cctray.xml 
   
 Or, with basic authentication
@@ -130,11 +130,11 @@ Or if you want to get really fancy, take a look at {Chicanery}[http://github.com
    
 == How do I contribute support for more lights? 
 
-Take a look at the classes in device_recipes then write your own!
+Take a look at the classes in lib/device_recipes then write your own!
 
 == How do I contribute support for more ci servers? 
 
-Take a look at the classes in ci_server plugins then write your own!
+Take a look at the classes in lib/ci_server plugins then write your own!
 You will probably find {Chicanery}[http://github.com/markryall/chicanery] very useful when doing this.
 
 == Copyright
