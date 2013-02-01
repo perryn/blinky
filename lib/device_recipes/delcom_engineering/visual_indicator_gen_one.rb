@@ -23,6 +23,9 @@ module Blinky
           set_colour(0xFF)  
         end
 
+        def init
+        end
+
         private
         def set_colour colour
           begin
