@@ -122,6 +122,10 @@ Plug in your light and then do this:
       
 Watch the pretty lights!
 
+== Troubleshooting
+
+check out https://github.com/perryn/blinky/wiki/Troubleshooting
+
 == Blinky doesn't quite do what I want
 
 The watch_cctray_server method is a very simple approach, but its easy to do something more sophisticated by writing your own plugin - see "How do I contribute support for more ci servers?" below.
